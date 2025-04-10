@@ -30,7 +30,7 @@ public class WeatherControllerTest {
     @Test
     public void testStudentIdentity() {
         // Arrange
-        String studentId = "221234567"; // ✅ Replace this with your real Deakin ID
+        String studentId = "224829819"; 
 
         // Assert
         Assert.assertNotNull("Student ID is null", studentId);

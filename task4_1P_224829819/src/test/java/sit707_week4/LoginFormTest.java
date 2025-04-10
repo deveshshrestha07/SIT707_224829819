@@ -8,13 +8,13 @@ public class LoginFormTest {
     // Identity Tests
     @Test
     public void testStudentIdentity() {
-        String studentId = "s223682102";
+        String studentId = "224829819";
         Assert.assertNotNull("Student ID is null", studentId);
     }
 
     @Test
     public void testStudentName() {
-        String studentName = "Pranjal Piya";
+        String studentName = "Devesh Shrestha";
         Assert.assertNotNull("Student name is null", studentName);
     }
 
