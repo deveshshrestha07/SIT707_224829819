@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+
+    <h2>Login Form</h2>
+
+    <form action="http://127.0.0.1:8082/login" method="post">
+        <label for="username">User name:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <p>If you click the "Login" button, the form-data will be sent to the Java server for authentication.</p>
+
+</body>
+</html>
