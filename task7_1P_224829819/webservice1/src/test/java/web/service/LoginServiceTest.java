@@ -59,6 +59,41 @@ public class LoginServiceTest {
         sleep(2);
         assertEquals("fail", driver.getTitle());
     }
+    @Test
+    public void testLoginFail_MissingDOB() {
+        driver.get("file:///Users/mac/Documents/trimester%202/sit707/7.1p/7.1P-resources/pages/login.html");
+
+        driver.findElement(By.id("username")).sendKeys("ahsan");
+        driver.findElement(By.id("password")).sendKeys("ahsan_pass");
+
+        // Disable HTML5 validation
+        WebElement form = driver.findElement(By.tagName("form"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('novalidate', 'true')", form);
+
+        driver.findElement(By.cssSelector("[type=submit]")).click();
+        sleep(2);
+        assertEquals("fail", driver.getTitle());
+    }
+
+    @Test
+    public void testLoginFail_EmptyUsernamePassword() {
+        driver.get("file:///Users/mac/Documents/trimester%202/sit707/7.1p/7.1P-resources/pages/login.html");
+
+        driver.findElement(By.id("username")).sendKeys("");
+        driver.findElement(By.id("password")).sendKeys("");
+        driver.findElement(By.id("dob")).sendKeys("1990-01-01");
+
+        // Disable HTML5 validation
+        WebElement form = driver.findElement(By.tagName("form"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('novalidate', 'true')", form);
+
+        driver.findElement(By.cssSelector("[type=submit]")).click();
+        sleep(2);
+        assertEquals("fail", driver.getTitle());
+    }
+
+
+
 
     @After
     public void tearDown() {
