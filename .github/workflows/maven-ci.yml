@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -18,4 +17,6 @@ jobs:
         distribution: 'temurin'
 
     - name: Build and Test with Maven
-      run: mvn clean install
+      run: |
+        cd task6_1P_224829819
+        mvn clean install
