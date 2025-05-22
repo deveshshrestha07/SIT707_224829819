@@ -70,4 +70,27 @@ public class OnTrackSystemTest {
     private String extractTaskId(String response) {
         return response.replace("Task submitted with ID: ", "").trim();
     }
+    @Test
+    public void testMultipleTaskSubmissions() {
+        system.submitTask("student001", "Task 1");
+        system.submitTask("student001", "Task 2");
+        List<Task> tasks = system.getTaskInbox("student001");
+        assertEquals(2, tasks.size());
+    }
+    @Test
+    public void testGetChatMessages_Right() {
+        String taskId = extractTaskId(system.submitTask(studentId, "Chat test"));
+        system.sendMessage(studentId, "tutor001", "Hello", taskId);
+        system.sendMessage("tutor001", studentId, "Hi", taskId);
+        List<Message> messages = system.getChatMessages(taskId);
+        assertEquals(2, messages.size());
+    }
+    @Test
+    public void testViewTask_InvalidId_Error() {
+        Task task = system.viewTask("nonexistent-id");
+        assertNull(task);
+    }
+
+
+
 }
